@@ -16,7 +16,7 @@ Un jeu de devinettes inspiré de Wordle, où vous devez deviner un personnage de
 1. Assurez-vous d'avoir [Node.js](https://nodejs.org/) installé sur votre machine
 2. Clonez ce dépôt :
    ```bash
-   git clone https://github.com/votre-utilisateur/omoridle.git
+   git clone https://github.com/Kokonutuw/omoridle.git
    cd omoridle
    ```
 3. Installez les dépendances :
