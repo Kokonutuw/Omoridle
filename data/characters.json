@@ -1,0 +1,174 @@
+[
+  {
+    "name": "Omori",
+    "aka": "Omori",
+    "role": "Deuteragoniste",
+    "gender": "Garçon",
+    "hair": "Noir",
+    "location": "Espace blanc",
+    "affiliation": "Groupe d'amis",
+    "image": "/images/characters/Omori_Neutral.webp"
+  },
+  {
+    "name": "Sunny",
+    "aka": "Sunny",
+    "role": "Protagoniste",
+    "gender": "Garçon",
+    "hair": "Noir",
+    "location": "Lointainville",
+    "affiliation": "Groupe d'amis",
+    "image": "/images/characters/Sunny_Neutral.gif"
+  },
+  {
+    "name": "Aubrey H-S",
+    "aka": "Aubergine",
+    "role": "Protagoniste mineur",
+    "gender": "Fille",
+    "hair": "Violet",
+    "location": "Chambre voisine",
+    "affiliation": "Groupe d'amis",
+    "image": "/images/characters/Aubrey_H_S_Angry.webp"
+  },
+  {
+    "name": "Kelsey H-S",
+    "aka": "Kel",
+    "role": "Protagoniste mineur",
+    "gender": "Garçon",
+    "hair": "Violet",
+    "location": "Chambre voisine",
+    "affiliation": "Groupe d'amis",
+    "image": "/images/characters/Kelsey_H_S_Happy.webp"
+  },
+  {
+    "name": "Kelsey",
+    "aka": "Kel",
+    "role": "Protagoniste mineur",
+    "gender": "Garçon",
+    "hair": "Marron",
+    "location": "Lointainville",
+    "affiliation": "Groupe d'amis",
+    "image": "/images/characters/Kelsey_Happy.gif"
+  },
+  {
+    "name": "Aubrey",
+    "aka": "Aubergine",
+    "role": "Antagoniste mineur",
+    "gender": "Fille",  
+    "hair": "Rose",
+    "location": "Lointainville",
+    "affiliation": "Vandale",
+    "image": "/images/characters/Aubrey_Enraged.webp"
+  },
+  {
+    "name":"Hero H-S",
+    "aka":"Henry",
+    "role":"Protagoniste mineur",
+    "gender":"Garçon",
+    "hair":"Violet",
+    "location":"Chambre voisine",
+    "affiliation":"Groupe d'amis",
+    "image":"/images/characters/Hero_H_S_Happy.webp"
+  },
+  {
+    "name":"Hero",
+    "aka":"Henry",
+    "role":"Protagoniste mineur",
+    "gender":"Garçon",
+    "hair":"Marron",
+    "location":"Lointainville",
+    "affiliation":"Groupe d'amis",
+    "image":"/images/characters/Hero_Happy.webp"
+  },
+  {
+    "name":"Mari H-S",
+    "aka":"Mari HS, Mari Headspace",
+    "role":"Support",
+    "gender":"Fille",
+    "hair":"Violet",
+    "location":"Picnic",
+    "affiliation":"Groupe d'amis",
+    "image":"/images/characters/Mari_H_S.webp"
+  },
+  {
+    "name":"Mari",
+    "aka":"Mari Suzuki, Mari Deceased",
+    "role":"Inconnu",
+    "gender":"Fille",
+    "hair":"Noir",
+    "location":"Cimetiere",
+    "affiliation":"Groupe d'amis",
+    "image":"/images/characters/Mari_RW.webp"
+  },
+  {
+    "name":"Basil",
+    "aka":"Basil",
+    "role":"Tritagoniste",
+    "gender":"Garçon",
+    "hair":"Blond",
+    "location":"Lointainville",
+    "affiliation":"Groupe d'amis",
+    "image":"/images/characters/Basil_Sad.webp"
+  },
+  {
+    "name":"Basil-H-S",
+    "aka":"Basil",
+    "role":"Tritagoniste",
+    "gender":"Garçon",
+    "hair":"Vert menthe",
+    "location":"Vieille chaussure",
+    "affiliation":"Groupe d'amis",
+    "image":"/images/characters/Basil_H_S.webp"
+  },
+  {
+    "name":"Kim",
+    "aka":"Kim",
+    "role":"Antagoniste mineur",
+    "gender":"Fille",
+    "hair":"Marron",
+    "location":"Lointainville",
+    "affiliation":"Vandale",
+    "image":"/images/characters/Kim.webp"
+  },
+  {
+    "name":"Vance",
+    "aka":"Vance",
+    "role":"Antagoniste mineur",
+    "gender":"Garçon",
+    "hair":"Marron",
+    "location":"Lointainville",
+    "affiliation":"Vandale",
+    "image":"/images/characters/Vance.gif"
+  },
+  {
+    "name":"Angel",
+    "aka":"Angel",
+    "role":"Antagoniste mineur",
+    "gender":"Garçon",
+    "hair":"Marron",
+    "location":"Lointainville",
+    "affiliation":"Vandale",
+    "image":"/images/characters/Angel.webp"
+  },
+  {
+    "name":"Charlie",
+    "aka":"Charlene",
+    "role":"Antagoniste mineur",
+    "gender":"Fille",
+    "hair":"Marron",
+    "location":"Lointainville",
+    "affiliation":"Vandale",
+    "image":"/images/characters/Charlene.webp"
+  },
+  {
+    "name":"The Maverick",
+    "aka":"Mikhael",
+    "role":"Antagoniste mineur",
+    "gender":"Garçon",
+    "hair":"Wig Blond,Cheveux Noir",
+    "location":"Lointainville",
+    "affiliation":"Vandale",
+    "image":"/images/characters/TheMaverick.webp"
+  }
+
+
+]

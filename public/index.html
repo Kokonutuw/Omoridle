@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/webp" href="/images/assets/Favicone.webp">
+    <title>Omori-dle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Omori-dle</h1>
+        <div id="guess-counter">Tentatives restantes : <span id="remaining-guesses">6</span></div>
+    </header>
+    <div class="container">
+        <div class="game-container">
+            <div class="input-area">
+                <div class="search-container">
+                    <input type="text" id="guess-input" placeholder="Devinez un personnage..." autocomplete="off">
+                    <div id="suggestions" class="suggestions"></div>
+                </div>
+                <button id="guess-btn">Deviner</button>
+            </div>
+            <div class="guesses"></div>
+        </div>
+        <div class="legend">
+            <h3>Légende :</h3>
+            <div class="legend-item">
+                <div class="legend-color correct"></div>
+                <span>Propriété correcte</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color partial"></div>
+                <span>Propriété partiellement correcte</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color incorrect"></div>
+                <span>Propriété incorrecte</span>
+            </div>
+            <div class="legend-section">
+                <h4>Propriétés :</h4>
+                <div class="legend-property">
+                    <span>1.</span> Nom du personnage
+                </div>
+                <div class="legend-property">
+                    <span>2.</span> Rôle
+                </div>
+                <div class="legend-property">
+                    <span>3.</span> Genre
+                </div>
+                <div class="legend-property">
+                    <span>4.</span> Couleur de cheveux
+                </div>
+                <div class="legend-property">
+                    <span>5.</span> Localisation
+                </div>
+                <div class="legend-property">
+                    <span>6.</span> Affiliation
+                </div>
+            </div>
+        </div>
+    </div>
+    <canvas class="canvas1" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></canvas>
+    <script src="script.js"></script>
+    <!-- Modale de fin de partie -->
+    <div id="endGameModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Félicitations !</h2>
+            <p id="modalMessage">Vous avez trouvé le personnage !</p>
+            <img id="modalCharacterImage" src="" alt="Personnage">
+            <button id="playAgainBtn">Rejouer</button>
+        </div>
+    </div>
+    <script src="../canvas.js"></script>
+</body>
+</html>
