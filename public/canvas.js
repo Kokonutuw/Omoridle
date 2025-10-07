@@ -2,7 +2,7 @@ const canvas = document.getElementsByClassName('canvas1')[0];
 const ctx = canvas.getContext('2d');
 const width = canvas.offsetWidth;
 const height = canvas.offsetHeight;
-const scale = 1
+const scale = 1.1 // Scaling constant, you can tweak it to change image size & the nb of lines / columns will adjust automatically on the canva
 const imageCache = [];
 let floatingImages = []
 
@@ -19,7 +19,7 @@ let startTime = performance.now()
 
 ctx.scale(scale, scale);
 
-const nbOfParticles = (canvas.height * canvas.width) / 2000;
+const nbOfParticles = (canvas.height * canvas.width) / 1000;
 
 class Particle {
     constructor(x, y, size, colour) {
@@ -64,6 +64,7 @@ class FloatingImage {
         this.height = height;
         this.vx = vx;
         this.vy = vy;
+	console.log(x, y);
     }
 
     draw() {
@@ -84,12 +85,12 @@ class FloatingImage {
 function placeFloatingImages() {
     floatingImages = []; // reset
 
-    const ratioScaling = 1300 / canvas.width;
+    const ratioScaling = (900 / canvas.height) / scale;
     const AVG_IMG_WIDTH = 65 / ratioScaling;
 
-    let nbLines = Math.floor(canvas.height / (AVG_IMG_WIDTH * 3));
-    let nbCols = Math.floor(canvas.width / (AVG_IMG_WIDTH * 4));
-    nbCols = nbCols === 0 ? 1 : nbCols;
+    let nbLines = Math.floor(canvas.height / (AVG_IMG_WIDTH * 4));
+    let nbCols = Math.floor(canvas.width / (AVG_IMG_WIDTH * 6));
+    nbCols = nbCols === 0 ? 2 : nbCols;
     nbLines = nbLines === 0 ? 1 : nbLines;
 
     const lineHeight = canvas.height / nbLines;
@@ -138,63 +139,41 @@ function preloadImages() {
         img.src = imgArray[i];
         imageCache.push(img);
     }
-   Promise.all(imageCache.map(img => new Promise(resolve => {
-        img.onload = resolve;
-    }))).then(() => {
-        placeFloatingImages(); // ← create floating image objects
-    });
-}
-
-function drawImagesOnOffScreen() {    
-    offScreenCanvas.width = canvas.width;
-    offScreenCanvas.height = canvas.height;    
-    // Ratio scaling permits proper scaling of the images, based on the height of the screen
-    const ratioScaling = 1300/canvas.width;
-    const AVG_IMG_WIDTH = 65/ratioScaling;    
-
-    let nbLines = Math.floor(canvas.height/(AVG_IMG_WIDTH*3));
-    // We want to place 1 image per columns, every 4 * img width (permits proper spacing)
-    let nbCols = Math.floor(canvas.width/(AVG_IMG_WIDTH*4));
-
-    nbCols = nbCols == 0 ? 1 : nbCols;
-    nbLines = nbLines == 0 ? 1 : nbLines;
-
-    const lineHeight = canvas.height/nbLines;
-    const colWidth = (canvas.width/nbCols);
-
-    //console.log(nbCols, nbLines)
-    let img = null;
-    for (let i = 0; i < nbLines * nbCols; i++) {
-        img = imageCache[Math.floor(Math.random() * imageCache.length)];
-        const offsetX = (colWidth/6) * (Math.floor(i / nbCols) % 2 == 0 ? 1 : -1) + (colWidth/3);
-        const offsetY =  ((lineHeight/6)+ Math.random()*(lineHeight/3) * (i % 2 == 0 ? 1 : -1)) + (lineHeight/6);
-        const X = ((i%nbCols) * colWidth) + offsetX
-        const Y = (Math.floor(i/nbCols) * lineHeight)+offsetY
-        offScreenCtx.drawImage(
-            img,
-            X,
-            Y,
-            img.width/ratioScaling,
-            img.height/ratioScaling
-        );     
-    }    
+    Promise.all(imageCache.map(img => new Promise(resolve => {
+         img.onload = resolve;
+     }))).then(() => {
+         placeFloatingImages(); 
+	 animate()
+     });
 }
 
 function animate(timestamp) {
-	for (let imgObj of floatingImages) {
-	    imgObj.update();
-	    imgObj.draw();
-	}
+        diff = timestamp - startTime;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+	window.addEventListener('resize', resizeCanvas, false);
+		for (let imgObj of floatingImages) {
+		    imgObj.update();
+		    imgObj.draw();
+		}
+	for (let i = 0; i < particlesArray.length; i++) {
+		particlesArray[i].updatePosition();
+		if(diff >= 2000 || timestamp < 60){
+		    particlesArray[i].update();       
+		    startTime = timestamp;              
+		}     
+		particlesArray[i].draw();    
+        }
+
+        requestAnimationFrame(animate);
+
 }
 
-window.addEventListener('resize', resizeCanvas, false);
-        
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 }
 
+window.addEventListener('resize', resizeCanvas, false);
 resizeCanvas();
 init();
 preloadImages();
-animate();
