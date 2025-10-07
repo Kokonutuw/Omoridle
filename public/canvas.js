@@ -64,7 +64,7 @@ class FloatingImage {
         this.height = height;
         this.vx = vx;
         this.vy = vy;
-	console.log(x, y);
+	//console.log(x, y);
     }
 
     draw() {
