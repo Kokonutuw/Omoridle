@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,49 +10,49 @@
 <body>
     <header>
         <h1>Omori-dle</h1>
-        <div id="guess-counter">Tentatives restantes : <span id="remaining-guesses">6</span></div>
+        <div id="guess-counter">Remaining attempts: <span id="remaining-guesses">6</span></div>
     </header>
     <div class="container">
         <div class="game-container">
             <div class="input-area">
                 <div class="search-container">
-                    <input type="text" id="guess-input" placeholder="Devinez un personnage..." autocomplete="off">
+                    <input type="text" id="guess-input" placeholder="Guess a character..." autocomplete="off">
                     <div id="suggestions" class="suggestions"></div>
                 </div>
-                <button id="guess-btn">Deviner</button>
+                <button id="guess-btn">Guess</button>
             </div>
             <div class="guesses"></div>
         </div>
         <div class="legend">
-            <h3>Légende :</h3>
+            <h3>Legend:</h3>
             <div class="legend-item">
                 <div class="legend-color correct"></div>
-                <span>Information correcte</span>
+                <span>Correct information</span>
             </div>
             <div class="legend-item">
                 <div class="legend-color partial"></div>
-                <span>Information partiellement correcte</span>
+                <span>Partially correct information</span>
             </div>
             <div class="legend-item">
                 <div class="legend-color incorrect"></div>
-                <span>Information incorrecte</span>
+                <span>Incorrect information</span>
             </div>
             <div class="legend-section">
-                <h4>Informations :</h4>
+                <h4>Information:</h4>
                 <div class="legend-property">
-                    <span>1.</span> Nom du personnage
+                    <span>1.</span> Character name
                 </div>
                 <div class="legend-property">
-                    <span>2.</span> Rôle
+                    <span>2.</span> Role
                 </div>
                 <div class="legend-property">
-                    <span>3.</span> Genre
+                    <span>3.</span> Gender
                 </div>
                 <div class="legend-property">
-                    <span>4.</span> Couleur de cheveux
+                    <span>4.</span> Hair color
                 </div>
                 <div class="legend-property">
-                    <span>5.</span> Localisation
+                    <span>5.</span> Location
                 </div>
                 <div class="legend-property">
                     <span>6.</span> Affiliation
@@ -65,10 +65,10 @@
     <!-- Modale de fin de partie -->
     <div id="endGameModal" class="modal">
         <div class="modal-content">
-            <h2 id="modalTitle">Félicitations !</h2>
-            <p id="modalMessage">Vous avez trouvé le personnage !</p>
-            <img id="modalCharacterImage" src="" alt="Personnage">
-            <button id="playAgainBtn">Rejouer</button>
+            <h2 id="modalTitle">Congratulations!</h2>
+            <p id="modalMessage">You found the character!</p>
+            <img id="modalCharacterImage" src="" alt="Character">
+            <button id="playAgainBtn">Play Again</button>
         </div>
     </div>
     <script src="../canvas.js"></script>

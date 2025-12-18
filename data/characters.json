@@ -208,8 +208,136 @@
     "location": "Humphrey",
     "affiliation": "Enemy",
     "image": "/images/characters/Mutantheart.webp"
+  },
+  {
+    "name": "Mewo",
+    "aka": "Black cat",
+    "role": "Pet",
+    "gender": "Girl",
+    "hair": "Black",
+    "location": "Sweetheart's castle",
+    "affiliation": "Mari's pet",
+    "image": "/images/characters/Mewo.webp"
+  },
+  {"name":"Something",
+    "aka":"Something",
+    "role":"Main Antagonist",
+    "gender":"Unknown",
+    "hair":"Unknown",
+    "location":"White Space",
+    "affiliation":"Something",
+    "image":"/images/characters/SOMETHING.webp"
+  },
+  {
+    "name": "The truth something",
+    "aka": "Something",
+    "role": "Main Antagonist",
+    "gender": "Unknown",
+    "hair": "Unknown",
+    "location": "Basil's house",
+    "affiliation": "Something",
+    "image": "/images/characters/BASIL_SOMETHING.webp"
+  },
+  {
+    "name": "Something in the dark",
+    "aka": "Something",
+    "role": "Main Antagonist",
+    "gender": "Unknown",
+    "hair": "Unknown",
+    "location": "Sunny's house",
+    "affiliation": "Something",
+    "image": "/images/characters/SOMETHING_IN_THE_DARK.webp"
+  },
+  {
+    "name": "Something in the walls",
+    "aka": "Something",
+    "role": "Main Antagonist",
+    "gender": "Unknown",
+    "hair": "Unknown",
+    "location": "White Space",
+    "affiliation": "Something",
+    "image": "/images/characters/Something_in_the_walls.webp"
+  },
+  {
+    "name": "Something in the water",
+    "aka": "Something",
+    "role": "Main Antagonist",
+    "gender": "Unknown",
+    "hair": "Unknown",
+    "location": "Sunny's house",
+    "affiliation": "Something",
+    "image": "/images/characters/Something_in_the_water.webp"
+  },
+  {
+    "name": "Dorothi",
+    "aka": "Something",
+    "role": "Main Antagonist",
+    "gender": "Unknown",
+    "hair": "Unknown",
+    "location": "Train",
+    "affiliation": "Something",
+    "image": "/images/characters/Dorothi.webp"
+  },
+  {
+    "name": "Cindi",
+    "aka": "Something",
+    "role": "Main Antagonist",
+    "gender": "Girl",
+    "hair": "Unknown",
+    "location": "Vast Forest",
+    "affiliation": "Something",
+    "image": "/images/characters/Cindi.webp"
+  },
+  {
+    "name": "Lili",
+    "aka": "Something",
+    "role": "Main Antagonist",
+    "gender": "Unknown",
+    "hair": "Unknown",
+    "location": "Rain Town",
+    "affiliation": "Something",
+    "image": "/images/characters/Lilli.webp"
+  },
+  {
+    "name": "Merci",
+    "aka": "Something",
+    "role": "Main Antagonist",
+    "gender": "Unknown",
+    "hair": "Unknown",
+    "location": "The Abyss",
+    "affiliation": "Something",
+    "image": "/images/characters/Merci.webp"
+  },
+  {
+    "name": "Nanci",
+    "aka": "Something",
+    "role": "Main Antagonist",
+    "gender": "Girl",
+    "hair": "Unknown",
+    "location": "Vast Forest",
+    "affiliation": "Something",
+    "image": "/images/characters/Nanci.webp"
+  },
+  {
+    "name": "Salli",
+    "aka": "Something",
+    "role": "Main Antagonist",
+    "gender": "Unknown",
+    "hair": "Unknown",
+    "location": "Foggy Bridge",
+    "affiliation": "Something",
+    "image": "/images/characters/Salli.webp"
+  },
+  {
+    "name": "Little one",
+    "aka": "Something",
+    "role": "Main Antagonist",
+    "gender": "Unknown",
+    "hair": "Unknown",
+    "location": "Black Space",
+    "affiliation": "Something",
+    "image": "/images/characters/Little_one.webp"
   }
-
 
 
 ]
