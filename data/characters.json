@@ -181,17 +181,17 @@
   },
   {
     "name": "Perfectheart",
-    "aka": "Perfectheart",
+    "aka": "Sweetheart",
     "role": "Optional Enemy",
     "gender": "Girl",
     "hair": "Pink",
     "location": "Humphrey",
     "affiliation": "Enemy",
-    "image": "/images/characters/Perfectheart.webp"
+    "image": "/images/characters/PerfectHeart.webp"
   },
   {
     "name": "Robotheart",
-    "aka": "Robotheart",
+    "aka": "Sweetheart",
     "role": "Optional Enemy",
     "gender": "Girl",
     "hair": "Metal",
@@ -201,7 +201,7 @@
   },
   {
     "name": "Mutantheart",
-    "aka": "Mutantheart",
+    "aka": "Sweetheart",
     "role": "Optional Enemy",
     "gender": "Girl",
     "hair": "Slime",
@@ -246,7 +246,7 @@
     "hair": "Unknown",
     "location": "Sunny's house",
     "affiliation": "Something",
-    "image": "/images/characters/SOMETHING_IN_THE_DARK.webp"
+    "image": "/images/characters/Something_in_the_Dark.webp"
   },
   {
     "name": "Something in the walls",
@@ -256,7 +256,7 @@
     "hair": "Unknown",
     "location": "White Space",
     "affiliation": "Something",
-    "image": "/images/characters/Something_in_the_walls.webp"
+    "image": "/images/characters/Something_In_The_Walls.webp"
   },
   {
     "name": "Something in the water",
@@ -266,7 +266,7 @@
     "hair": "Unknown",
     "location": "Sunny's house",
     "affiliation": "Something",
-    "image": "/images/characters/Something_in_the_water.webp"
+    "image": "/images/characters/SOMETHING_IN_THE_WATER.webp"
   },
   {
     "name": "Dorothi",
