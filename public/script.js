@@ -184,8 +184,11 @@ function displayGuess(character, result) {
   const guessElement = document.createElement("div");
   guessElement.className = "guess";
   
-  // Stocker le nom exact du personnage pour éviter les conflits
+  // Stocker le nom exact du personnage et son AKA pour éviter les conflits
   guessElement.dataset.characterName = character.name;
+  if (character.aka) {
+    guessElement.dataset.characterAka = character.aka;
+  }
 
   const imageContainer = document.createElement("div");
   imageContainer.className = "character-image-container";
@@ -434,19 +437,27 @@ function handleSearchInput(e) {
   
   console.log('Recherche pour:', input);
   
-  // Récupérer les noms des personnages déjà devinés
-  const guessedNames = [];
+  // Récupérer les noms et AKA des personnages déjà devinés
+  const guessedCharacters = [];
   document.querySelectorAll('.guess').forEach(guess => {
     // Récupérer le nom exact du personnage deviné
     const guessCharacterName = guess.dataset.characterName;
+    const guessCharacterAka = guess.dataset.characterAka;
+    
     if (guessCharacterName) {
-      guessedNames.push(guessCharacterName);
+      guessedCharacters.push({
+        name: guessCharacterName,
+        aka: guessCharacterAka
+      });
     } else {
       // Fallback si le dataset n'existe pas (ancien format)
       const nameElement = guess.querySelector('.character-tile');
       if (nameElement) {
         const nameText = nameElement.textContent.replace(/^\d+\.\s*/, '').trim();
-        guessedNames.push(nameText);
+        guessedCharacters.push({
+          name: nameText,
+          aka: null
+        });
       }
     }
   });
@@ -456,9 +467,12 @@ function handleSearchInput(e) {
     if (!character?.name) return false;
     
     // Vérifier si le personnage a déjà été deviné
-    const isAlreadyGuessed = guessedNames.some(name => 
-      name === character.name || 
-      (character.aka && character.aka.split(',').some(aka => aka.trim() === name))
+    const isAlreadyGuessed = guessedCharacters.some(guessed => 
+      guessed.name === character.name || 
+      (guessed.aka && character.aka && 
+       guessed.aka.split(',').some(aka => aka.trim() === character.name) ||
+       character.aka.split(',').some(aka => aka.trim() === guessed.name)
+      )
     );
     
     if (isAlreadyGuessed) return false;
