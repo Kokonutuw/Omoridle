@@ -167,7 +167,7 @@
     "hair": "Blonde Wig,Black Hair",
     "location":"Faraway Town",
     "affiliation":"Vandal",
-    "image":"/images/characters/TheMaverick.webp"
+    "image":"/images/characters/Themaverick.webp"
   },
   {
     "name":"Sweetheart",
@@ -187,7 +187,7 @@
     "hair": "Pink",
     "location": "Humphrey",
     "affiliation": "Enemy",
-    "image": "/images/characters/PerfectHeart.webp"
+    "image": "/images/characters/Perfectheart.webp"
   },
   {
     "name": "Robotheart",
@@ -246,7 +246,7 @@
     "hair": "Unknown",
     "location": "Sunny's house",
     "affiliation": "Something",
-    "image": "/images/characters/Something_in_the_Dark.webp"
+    "image": "/images/characters/SOMETHING_IN_THE_DARK.webp"
   },
   {
     "name": "Something in the walls",
@@ -256,7 +256,7 @@
     "hair": "Unknown",
     "location": "White Space",
     "affiliation": "Something",
-    "image": "/images/characters/Something_In_The_Walls.webp"
+    "image": "/images/characters/SOMETHING_IN_THE_WALLS.webp"
   },
   {
     "name": "Something in the water",
@@ -336,7 +336,37 @@
     "hair": "Unknown",
     "location": "Black Space",
     "affiliation": "Something",
-    "image": "/images/characters/Little_one.webp"
+    "image": "/images/characters/LITTLE_ONE.webp"
+  },
+  {
+    "name": "Berly",
+    "aka": "Berly",
+    "role":"NPC",
+    "gender":"Girl",
+    "hair":"Black",
+    "location":"Forest Playground",
+    "affiliation":"Playground",
+    "image":"/images/characters/Berly.webp"
+  },
+  {
+    "name": "Van",
+    "aka": "Van",
+    "role":"NPC",
+    "gender":"Boy",
+    "hair":"Purple",
+    "location":"Forest Playground",
+    "affiliation":"Playground",
+    "image":"/images/characters/Van.webp"
+  },
+  {
+    "name": "Mikal",
+    "aka": "Mikal",
+    "role":"NPC",
+    "gender":"Boy",
+    "hair":"Yellow",
+    "location":"Forest Playground",
+    "affiliation":"Playground",
+    "image":"/images/characters/Mikal.webp"
   }
 
 
