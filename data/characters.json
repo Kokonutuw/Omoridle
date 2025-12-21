@@ -167,7 +167,7 @@
     "hair": "Blonde Wig,Black Hair",
     "location":"Faraway Town",
     "affiliation":"Vandal",
-    "image":"/images/characters/Themaverick.webp"
+    "image":"/images/characters/TheMaverick.webp"
   },
   {
     "name":"Sweetheart",
@@ -177,7 +177,7 @@
     "hair":"Pink",
     "location":"Sweetheart's castle",
     "affiliation":"Enemy",
-    "image":"/images/characters/Sweetheart.webp"
+    "image":"/images/characters/SweetHeart.webp"
   },
   {
     "name": "Perfectheart",
@@ -187,7 +187,7 @@
     "hair": "Pink",
     "location": "Humphrey",
     "affiliation": "Enemy",
-    "image": "/images/characters/Perfectheart.webp"
+    "image": "/images/characters/PerfectHeart.webp"
   },
   {
     "name": "Robotheart",
@@ -197,7 +197,7 @@
     "hair": "Metal",
     "location": "Humphrey",
     "affiliation": "Enemy",
-    "image": "/images/characters/Robotheart.webp"
+    "image": "/images/characters/RobotHeart.webp"
   },
   {
     "name": "Mutantheart",
@@ -207,7 +207,7 @@
     "hair": "Slime",
     "location": "Humphrey",
     "affiliation": "Enemy",
-    "image": "/images/characters/Mutantheart.webp"
+    "image": "/images/characters/MutantHeart.webp"
   },
   {
     "name": "Mewo",
