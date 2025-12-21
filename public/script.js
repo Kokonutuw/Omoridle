@@ -116,18 +116,8 @@ function checkGuess() {
     );
 
     if (matchingCharacters.length === 1) {
-      // Un seul personnage correspond à la recherche partielle
       guessedCharacter = matchingCharacters[0];
-    } else if (matchingCharacters.length > 1) {
-      // Plusieurs personnages correspondent, demander à être plus précis
-      alert(`Plusieurs personnages correspondent à "${guess}". Soyez plus précis.`);
-      return;
     }
-  }
-
-  if (!guessedCharacter) {
-    alert("Personnage non trouvé. Essayez un autre nom.");
-    return;
   }
 
   // Incrémenter le compteur de tentatives avant de vérifier si le jeu est terminé
@@ -487,68 +477,3 @@ function handleSearchInput(e) {
   console.log('Correspondances trouvées:', matches);
   showSuggestions(matches);
 }
-
-// Initialisation du jeu
-document.addEventListener('DOMContentLoaded', () => {
-  // Initialiser les éléments du DOM
-  const guessInput = document.getElementById('guess-input');
-  const guessBtn = document.getElementById('guess-btn');
-  const endGameModal = document.getElementById('endGameModal');
-  
-  // Gestionnaire d'événement pour le bouton Deviner
-  if (guessBtn) {
-    guessBtn.addEventListener('click', checkGuess);
-  }
-  
-  // Gestion de la saisie dans le champ de recherche
-  if (guessInput) {
-    guessInput.addEventListener('input', handleSearchInput);
-    
-    // Gestion des touches du clavier
-    guessInput.addEventListener('keydown', (e) => {
-      const suggestionsContainer = document.getElementById('suggestions');
-      
-      if (e.key === 'Enter') {
-        const highlighted = document.querySelector('.suggestion-item.highlighted');
-        if (highlighted) {
-          e.preventDefault();
-          guessInput.value = highlighted.textContent.trim();
-          if (suggestionsContainer) {
-            suggestionsContainer.style.display = 'none';
-          }
-        }
-        checkGuess();
-      } else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-        e.preventDefault();
-        highlightSuggestion(e.key === 'ArrowDown' ? 'down' : 'up');
-      } else if (e.key === 'Escape' && suggestionsContainer) {
-        suggestionsContainer.style.display = 'none';
-      }
-    });
-  }
-  
-  // Fermer la modale en cliquant en dehors
-  if (endGameModal) {
-    endGameModal.addEventListener('click', (e) => {
-      if (e.target === endGameModal) {
-        endGameModal.style.display = 'none';
-      }
-    });
-  }
-  
-  // Cacher les suggestions quand on clique en dehors
-  document.addEventListener('click', (e) => {
-    const suggestionsContainer = document.getElementById('suggestions');
-    if (suggestionsContainer && !e.target.closest('.search-container')) {
-      suggestionsContainer.style.display = 'none';
-    }
-  });
-  
-  // Initialiser le bouton Rejouer
-  initPlayAgainButton();
-  
-  // Charger les personnages et démarrer une nouvelle partie
-  loadCharacters();
-});
-
-document.getElementById("guess-btn").addEventListener("click", checkGuess);
