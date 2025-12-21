@@ -302,11 +302,11 @@ function showEndGameModal(isWin) {
   const modalImage = document.getElementById('modalCharacterImage');
   
   if (isWin) {
-    modalTitle.textContent = 'Félicitations !';
-    modalMessage.textContent = `Vous avez trouvé ${targetCharacter.name} en ${currentGuess} essai(s) !`;
+    modalTitle.textContent = 'Congratulations!';
+    modalMessage.textContent = `You found ${targetCharacter.name} in ${currentGuess} guess(es)!`;
   } else {
-    modalTitle.textContent = 'Partie terminée';
-    modalMessage.textContent = `Dommage ! Le personnage était ${targetCharacter.name}`;
+    modalTitle.textContent = 'Game Over';
+    modalMessage.textContent = `Too bad! The character was ${targetCharacter.name}`;
   }
   
   modalImage.src = targetCharacter.image;
