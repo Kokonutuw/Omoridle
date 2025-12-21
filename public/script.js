@@ -183,6 +183,9 @@ function displayGuess(character, result) {
   console.log('Affichage du personnage :', { character, result });
   const guessElement = document.createElement("div");
   guessElement.className = "guess";
+  
+  // Stocker le nom exact du personnage pour éviter les conflits
+  guessElement.dataset.characterName = character.name;
 
   const imageContainer = document.createElement("div");
   imageContainer.className = "character-image-container";
@@ -434,10 +437,17 @@ function handleSearchInput(e) {
   // Récupérer les noms des personnages déjà devinés
   const guessedNames = [];
   document.querySelectorAll('.guess').forEach(guess => {
-    const nameElement = guess.querySelector('.character-tile');
-    if (nameElement) {
-      const nameText = nameElement.textContent.replace(/^\d+\.\s*/, '').trim();
-      guessedNames.push(nameText);
+    // Récupérer le nom exact du personnage deviné
+    const guessCharacterName = guess.dataset.characterName;
+    if (guessCharacterName) {
+      guessedNames.push(guessCharacterName);
+    } else {
+      // Fallback si le dataset n'existe pas (ancien format)
+      const nameElement = guess.querySelector('.character-tile');
+      if (nameElement) {
+        const nameText = nameElement.textContent.replace(/^\d+\.\s*/, '').trim();
+        guessedNames.push(nameText);
+      }
     }
   });
 
