@@ -246,7 +246,7 @@
     "hair": "Unknown",
     "location": "Sunny's house",
     "affiliation": "Something",
-    "image": "/images/characters/SOMETHING_IN_THE_DARK.webp"
+    "image": "/images/characters/Somethinginthedark.webp"
   },
   {
     "name": "Something in the walls",
@@ -256,7 +256,7 @@
     "hair": "Unknown",
     "location": "White Space",
     "affiliation": "Something",
-    "image": "/images/characters/SOMETHING_IN_THE_WALLS.webp"
+    "image": "/images/characters/Somethinginthewalls.webp"
   },
   {
     "name": "Something in the water",
@@ -266,7 +266,7 @@
     "hair": "Unknown",
     "location": "Sunny's house",
     "affiliation": "Something",
-    "image": "/images/characters/SOMETHING_IN_THE_WATER.webp"
+    "image": "/images/characters/Somethinginthewater.webp"
   },
   {
     "name": "Dorothi",
