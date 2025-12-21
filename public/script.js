@@ -12,7 +12,7 @@ async function loadCharacters() {
     console.log("Character data loaded:", characters); // Debug log
     startNewGame();
   } catch (error) {
-    console.error("Error loading characters:", error);
+    // Error loading characters
   }
 }
 
@@ -24,7 +24,6 @@ function updateGuessCounter() {
 
 function startNewGame() {
   if (!characters || characters.length === 0) {
-    console.error('Aucun personnage chargé pour démarrer une nouvelle partie');
     return;
   }
   
@@ -73,7 +72,7 @@ function startNewGame() {
     }, 50);
     
   } catch (error) {
-    console.error('Erreur lors du démarrage d\'une nouvelle partie:', error);
+    // Error starting new game
   }
 }
 
@@ -214,7 +213,6 @@ function displayGuess(character, result) {
 function showSuggestions(matches) {
   const suggestionsContainer = document.getElementById('suggestions');
   if (!suggestionsContainer) {
-    console.error('Élément suggestions non trouvé dans le DOM');
     return;
   }
   
@@ -338,15 +336,14 @@ function initPlayAgainButton() {
       try {
         startNewGame();
       } catch (error) {
-        console.error('Erreur lors de la réinitialisation du jeu:', error);
-        // In case of error, reload page
+        // Error resetting game
         window.location.reload();
       }
     });
     
     return newPlayAgainBtn;
   } else {
-    console.error('Bouton Rejouer non trouvé dans le DOM');
+    // Play Again button not found
   }
   return null;
 }
@@ -408,7 +405,6 @@ function handleSearchInput(e) {
   }
   
   if (!characters || characters.length === 0) {
-    console.error('Aucun personnage chargé pour la recherche');
     return;
   }
   
@@ -416,7 +412,6 @@ function handleSearchInput(e) {
   const suggestionsContainer = document.getElementById('suggestions');
   
   if (!suggestionsContainer) {
-    console.error('Élément suggestions non trouvé dans le DOM');
     return;
   }
   
