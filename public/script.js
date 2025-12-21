@@ -229,8 +229,9 @@ function showSuggestions(matches) {
     return;
   }
   
-  // Afficher les 5 premières correspondances
-  matches.slice(0, 5).forEach((character) => {
+  // Afficher toutes les correspondances (ou maximum 15 pour éviter trop de résultats)
+  const maxResults = Math.min(matches.length, 15);
+  matches.slice(0, maxResults).forEach((character) => {
     if (!character) return;
     
     const suggestion = document.createElement('div');
@@ -268,6 +269,15 @@ function showSuggestions(matches) {
     
     suggestionsContainer.appendChild(suggestion);
   });
+  
+  // Ajouter un message si plus de résultats existent
+  if (matches.length > maxResults) {
+    const moreResults = document.createElement('div');
+    moreResults.className = 'suggestion-more';
+    moreResults.textContent = `... et ${matches.length - maxResults} autres résultats`;
+    moreResults.style.cssText = 'padding: 8px; text-align: center; color: #888; font-style: italic; border-top: 1px solid #444;';
+    suggestionsContainer.appendChild(moreResults);
+  }
   
   suggestionsContainer.style.display = 'block';
 }
@@ -424,6 +434,12 @@ function handleSearchInput(e) {
     return;
   }
   
+  // Si l'utilisateur tape "*", afficher tous les personnages
+  if (input === '*') {
+    showAllCharacters();
+    return;
+  }
+  
   if (input.length === 0) {
     suggestionsContainer.style.display = 'none';
     return;
@@ -462,6 +478,39 @@ function handleSearchInput(e) {
   
   console.log('Correspondances trouvées:', matches);
   showSuggestions(matches);
+}
+
+// Fonction pour afficher tous les personnages non devinés
+function showAllCharacters() {
+  const suggestionsContainer = document.getElementById('suggestions');
+  if (!suggestionsContainer) return;
+  
+  // Récupérer les noms des personnages déjà devinés
+  const guessedNames = [];
+  document.querySelectorAll('.guess').forEach(guess => {
+    const nameElement = guess.querySelector('.character-tile');
+    if (nameElement) {
+      const nameText = nameElement.textContent.replace(/^\d+\.\s*/, '').trim();
+      guessedNames.push(nameText);
+    }
+  });
+  
+  // Filtrer les personnages non devinés
+  const availableCharacters = characters.filter(character => {
+    if (!character?.name) return false;
+    
+    const isAlreadyGuessed = guessedNames.some(name => 
+      name === character.name || 
+      (character.aka && character.aka.split(',').some(aka => aka.trim() === name))
+    );
+    
+    return !isAlreadyGuessed;
+  });
+  
+  // Trier alphabétiquement
+  availableCharacters.sort((a, b) => a.name.localeCompare(b.name));
+  
+  showSuggestions(availableCharacters);
 }
 
 // Initialisation du jeu
