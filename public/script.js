@@ -9,7 +9,7 @@ async function loadCharacters() {
   try {
     const response = await fetch("/api/characters");
     characters = await response.json();
-    console.log("Données des personnages chargées :", characters); // Log pour débogage
+    console.log("Character data loaded:", characters); // Debug log
     startNewGame();
   } catch (error) {
     console.error("Error loading characters:", error);
@@ -18,7 +18,7 @@ async function loadCharacters() {
 
 function updateGuessCounter() {
   const remainingGuesses = maxGuesses - currentGuess;
-  console.log('Mise à jour du compteur :', { maxGuesses, currentGuess, remainingGuesses });
+  console.log('Counter update:', { maxGuesses, currentGuess, remainingGuesses });
   document.getElementById("remaining-guesses").textContent = remainingGuesses;
 }
 
@@ -29,14 +29,14 @@ function startNewGame() {
   }
   
   try {
-    // Sélectionner un nouveau personnage cible
+    // Select a new target character
     targetCharacter = characters[Math.floor(Math.random() * characters.length)];
     
-    // Réinitialiser les variables de jeu
+    // Reset game variables
     currentGuess = 0;
     gameOver = false;
     
-    // Réinitialiser l'interface
+    // Reset interface
     const guessesContainer = document.querySelector(".guesses");
     const hintsContainer = document.querySelector(".hints");
     
@@ -62,12 +62,12 @@ function startNewGame() {
       suggestionsContainer.style.display = 'none';
     }
     
-    // Réinitialiser le compteur de tentatives
+    // Reset guess counter
     updateGuessCounter();
     
-    console.log('Nouvelle partie commencée. Personnage cible:', targetCharacter?.name || 'inconnu');
+    console.log('New game started. Target character:', targetCharacter?.name || 'unknown');
     
-    // Forcer le rafraîchissement de l'UI
+    // Force UI refresh
     setTimeout(() => {
       if (guessInput) guessInput.focus();
     }, 50);
@@ -77,7 +77,7 @@ function startNewGame() {
   }
 }
 
-// Vérifier la supposition
+// Check guess
 function checkGuess() {
   if (gameOver) return;
 
@@ -86,18 +86,18 @@ function checkGuess() {
 
   if (!guess) return;
 
-  // Liste des personnages déjà devinés
+  // List of already guessed characters
   const guessedCharacters = Array.from(document.querySelectorAll('.guess')).map(guess => 
     guess.querySelector('.character-image').alt
   );
 
   // Vérifier si le personnage a déjà été deviné
   if (guessedCharacters.includes(guess)) {
-    alert("Vous avez déjà deviné ce personnage !");
+    alert("You already guessed this character!");
     return;
   }
 
-  // Recherche exacte du personnage (nom ou aka)
+  // Exact character search (name or aka)
   let guessedCharacter = characters.find(char => 
     char.name.toLowerCase() === guess.toLowerCase() || 
     (char.aka && char.aka.toLowerCase().split(',').some(aka => 
@@ -105,9 +105,9 @@ function checkGuess() {
     ))
   );
 
-  // Si pas trouvé, essayer une recherche partielle plus stricte
+  // If not found, try stricter partial search
   if (!guessedCharacter) {
-    // Vérifier si l'utilisateur a tapé un nom partiel qui correspond à plusieurs personnages
+    // Check if user typed partial name matching multiple characters
     const matchingCharacters = characters.filter(char => 
       char.name.toLowerCase().includes(guess.toLowerCase()) ||
       (char.aka && char.aka.toLowerCase().split(',').some(aka => 
@@ -120,14 +120,14 @@ function checkGuess() {
     }
   }
 
-  // Incrémenter le compteur de tentatives avant de vérifier si le jeu est terminé
+  // Increment guess counter before checking if game is over
   currentGuess++;
   updateGuessCounter();
 
   const result = compareCharacters(guessedCharacter, targetCharacter);
   displayGuess(guessedCharacter, result);
 
-  // Vérifier si le joueur a gagné ou perdu
+  // Check if player won or lost
   const isCorrect = JSON.stringify(guessedCharacter) === JSON.stringify(targetCharacter);
   const isLastGuess = currentGuess >= maxGuesses;
 
@@ -142,13 +142,13 @@ function checkGuess() {
     showEndGameModal(isCorrect);
   }
 
-  // Effacer le champ de saisie
+  // Clear input field
   guessInput.value = "";
 }
 
-// Comparer les personnages
+// Compare characters
 function compareCharacters(guess, target) {
-  console.log('Comparaison des personnages :', { guess, target });
+  console.log('Character comparison:', { guess, target });
   return {
     name:
       guess.name === target.name
@@ -170,11 +170,11 @@ function compareCharacters(guess, target) {
 }
 
 function displayGuess(character, result) {
-  console.log('Affichage du personnage :', { character, result });
+  console.log('Displaying character:', { character, result });
   const guessElement = document.createElement("div");
   guessElement.className = "guess";
   
-  // Stocker le nom exact du personnage et son AKA pour éviter les conflits
+  // Store exact character name and AKA to avoid conflicts
   guessElement.dataset.characterName = character.name;
   if (character.aka) {
     guessElement.dataset.characterAka = character.aka;
@@ -210,7 +210,7 @@ function displayGuess(character, result) {
   document.querySelector(".guesses").appendChild(guessElement);
 }
 
-// Fonction pour afficher les suggestions
+// Function to display suggestions
 function showSuggestions(matches) {
   const suggestionsContainer = document.getElementById('suggestions');
   if (!suggestionsContainer) {
@@ -225,33 +225,33 @@ function showSuggestions(matches) {
     return;
   }
   
-  // Afficher les 20 premières correspondances
+  // Display first 20 matches
   matches.slice(0, 20).forEach((character) => {
     if (!character) return;
     
     const suggestion = document.createElement('div');
     suggestion.className = 'suggestion-item';
     
-    // Créer un conteneur pour l'image et le nom
+    // Create container for image and name
     const suggestionContent = document.createElement('div');
     suggestionContent.className = 'suggestion-content';
     
-    // Ajouter l'image du personnage
+    // Add character image
     const charImage = document.createElement('img');
     charImage.src = character.image || 'images/characters/default.webp';
     charImage.alt = character.name;
     charImage.className = 'suggestion-image';
     
-    // Ajouter le nom du personnage
+    // Add character name
     const nameSpan = document.createElement('span');
     nameSpan.textContent = character.name;
     
-    // Assembler les éléments
+    // Assemble elements
     suggestionContent.appendChild(charImage);
     suggestionContent.appendChild(nameSpan);
     suggestion.appendChild(suggestionContent);
     
-    // Gestion du clic sur une suggestion
+    // Handle suggestion click
     suggestion.addEventListener('click', (e) => {
       e.stopPropagation();
       const guessInput = document.getElementById('guess-input');
@@ -268,7 +268,7 @@ function showSuggestions(matches) {
   suggestionsContainer.style.display = 'block';
 }
 
-// Fonction pour mettre en surbrillance la suggestion sélectionnée avec les flèches
+// Function to highlight selected suggestion with arrow keys
 function highlightSuggestion(direction) {
   const suggestions = document.querySelectorAll('.suggestion-item');
   if (suggestions.length === 0) return;
@@ -292,11 +292,11 @@ function highlightSuggestion(direction) {
   suggestions[currentIndex].classList.add('highlighted');
   suggestions[currentIndex].scrollIntoView({ block: 'nearest' });
   
-  // Mettre à jour l'input avec la suggestion sélectionnée
+  // Update input with selected suggestion
   document.getElementById('guess-input').value = suggestions[currentIndex].textContent;
 }
 
-// Afficher la modale de fin de partie
+// Display end game modal
 function showEndGameModal(isWin) {
   const modal = document.getElementById('endGameModal');
   const modalTitle = document.getElementById('modalTitle');
@@ -315,31 +315,31 @@ function showEndGameModal(isWin) {
   modal.style.display = 'flex';
 }
 
-// Fonction pour initialiser le bouton Rejouer
+// Function to initialize play again button
 function initPlayAgainButton() {
   const playAgainBtn = document.getElementById('playAgainBtn');
   if (playAgainBtn) {
-    // Supprimer tous les écouteurs existants
+    // Remove all existing listeners
     const newPlayAgainBtn = playAgainBtn.cloneNode(true);
     playAgainBtn.parentNode.replaceChild(newPlayAgainBtn, playAgainBtn);
     
-    // Ajouter le nouvel écouteur
+    // Add new listener
     newPlayAgainBtn.addEventListener('click', (e) => {
       e.stopPropagation();
-      console.log('Bouton Rejouer cliqué');
+      console.log('Play Again button clicked');
       
-      // Fermer la modale
+      // Close modal
       const modal = document.getElementById('endGameModal');
       if (modal) {
         modal.style.display = 'none';
       }
       
-      // Réinitialiser le jeu
+      // Reset game
       try {
         startNewGame();
       } catch (error) {
         console.error('Erreur lors de la réinitialisation du jeu:', error);
-        // En cas d'erreur, recharger la page
+        // In case of error, reload page
         window.location.reload();
       }
     });
@@ -351,23 +351,23 @@ function initPlayAgainButton() {
   return null;
 }
 
-// Initialisation du jeu
+// Initialize game
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialiser le bouton Rejouer
+  // Initialize play again button
   initPlayAgainButton();
   
-  // Charger les personnages et démarrer une nouvelle partie
+  // Load characters and start new game
   loadCharacters();
   
-  // Gestionnaire d'événement pour le champ de recherche
+  // Event handler for search field
   const guessInput = document.getElementById('guess-input');
   const suggestionsContainer = document.getElementById('suggestions');
   
   if (guessInput) {
-    // Gestion de la saisie dans le champ de recherche
+    // Handle search input
     guessInput.addEventListener('input', handleSearchInput);
     
-    // Gestion de la touche Entrée
+    // Handle Enter key
     guessInput.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') {
         const highlighted = document.querySelector('.suggestion-item.highlighted');
@@ -390,7 +390,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
-  // Cacher les suggestions quand on clique en dehors
+  // Hide suggestions when clicking outside
   document.addEventListener('click', (e) => {
     const suggestionsContainer = document.getElementById('suggestions');
     if (suggestionsContainer && !e.target.closest('.search-container')) {
@@ -399,11 +399,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Fonction pour gérer la recherche
+// Function to handle search
 function handleSearchInput(e) {
-  // Vérifier si le jeu est en cours
+  // Check if game is in progress
   if (gameOver) {
-    console.log('La partie est terminée, la recherche est désactivée');
+    console.log('Game is over, search is disabled');
     return;
   }
   
@@ -425,12 +425,12 @@ function handleSearchInput(e) {
     return;
   }
   
-  console.log('Recherche pour:', input);
+  console.log('Searching for:', input);
   
-  // Récupérer les noms et AKA des personnages déjà devinés
+  // Get names and AKA of already guessed characters
   const guessedCharacters = [];
   document.querySelectorAll('.guess').forEach(guess => {
-    // Récupérer le nom exact du personnage deviné
+    // Get exact guessed character name
     const guessCharacterName = guess.dataset.characterName;
     const guessCharacterAka = guess.dataset.characterAka;
     
@@ -440,7 +440,7 @@ function handleSearchInput(e) {
         aka: guessCharacterAka
       });
     } else {
-      // Fallback si le dataset n'existe pas (ancien format)
+      // Fallback if dataset doesn't exist (old format)
       const nameElement = guess.querySelector('.character-tile');
       if (nameElement) {
         const nameText = nameElement.textContent.replace(/^\d+\.\s*/, '').trim();
@@ -452,11 +452,11 @@ function handleSearchInput(e) {
     }
   });
 
-  // Filtrer les personnages qui correspondent à la recherche
+  // Filter characters matching search
   const matches = characters.filter(character => {
     if (!character?.name) return false;
     
-    // Vérifier si le personnage a déjà été deviné
+    // Check if character has already been guessed
     const isAlreadyGuessed = guessedCharacters.some(guessed => 
       guessed.name === character.name || 
       (guessed.aka && character.aka && 
@@ -467,13 +467,13 @@ function handleSearchInput(e) {
     
     if (isAlreadyGuessed) return false;
     
-    // Vérifier si le nom ou l'alias correspond à la recherche
+    // Check if name or alias matches search
     const nameMatch = character.name.toLowerCase().includes(input);
     const akaMatch = character.aka?.toLowerCase().includes(input) || false;
     
     return nameMatch || akaMatch;
   });
   
-  console.log('Correspondances trouvées:', matches);
+  console.log('Matches found:', matches);
   showSuggestions(matches);
 }
