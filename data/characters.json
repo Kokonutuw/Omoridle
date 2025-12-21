@@ -177,7 +177,7 @@
     "hair":"Pink",
     "location":"Sweetheart's castle",
     "affiliation":"Enemy",
-    "image":"/images/characters/SweetHeart.webp"
+    "image":"/images/characters/Sweetheart.webp"
   },
   {
     "name": "Perfectheart",
@@ -197,7 +197,7 @@
     "hair": "Metal",
     "location": "Humphrey",
     "affiliation": "Enemy",
-    "image": "/images/characters/RobotHeart.webp"
+    "image": "/images/characters/Robotheart.webp"
   },
   {
     "name": "Mutantheart",
@@ -207,7 +207,7 @@
     "hair": "Slime",
     "location": "Humphrey",
     "affiliation": "Enemy",
-    "image": "/images/characters/MutantHeart.webp"
+    "image": "/images/characters/Mutantheart.webp"
   },
   {
     "name": "Mewo",
